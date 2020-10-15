@@ -5,4 +5,5 @@ module.exports = {
   alreadySigned: 'channel already signed',
   notSigned: 'channel not signed',
   emptyMessage: 'message cannot be empty',
+  wrong: 'something went terribly wrong',
 }
