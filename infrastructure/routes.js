@@ -4,5 +4,5 @@ module.exports = {
   addChannel: '/api/add/channel/:businessId/:channelName',
   removeChannel: '/api/remove/channel/:businessId/:channelName',
   sendMessageBusiness: '/api/send/business/:businessId',
-  sendMessageChannel: '/api/send/business/:channelName'
+  sendMessageChannel: '/api/send/channel/:channelName'
 }

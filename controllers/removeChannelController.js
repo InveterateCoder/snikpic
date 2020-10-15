@@ -15,7 +15,7 @@ async function removeChannelController(req, res) {
     } else {
       await business.update({ $set: { channels } })
     }
-    res.send({ success: 'ok' })
+    res.send({ success: true })
   } catch (err) {
     res.status(500).send(err.message)
   }

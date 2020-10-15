@@ -4,4 +4,5 @@ module.exports = {
   businessNotFound: 'business not found',
   alreadySigned: 'channel already signed',
   notSigned: 'channel not signed',
+  emptyMessage: 'message cannot be empty',
 }

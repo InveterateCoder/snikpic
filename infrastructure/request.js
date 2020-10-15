@@ -13,4 +13,8 @@ async function findChannelByName(name) {
   return null
 }
 
-module.exports = { findChannelByName }
+async function sendMessage(channel, text) {
+  return await slack.chat.postMessage({ token, channel, text })
+}
+
+module.exports = { findChannelByName, sendMessage }

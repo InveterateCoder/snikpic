@@ -16,7 +16,7 @@ async function addChannelController(req, res) {
     }
     await business.update({ $push: { channels: channel } })
     await business.save()
-    res.send({ success: 'ok' })
+    res.send({ success: true })
   } catch (err) {
     res.status(500).send(err.message)
   }
