@@ -1,15 +1,27 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
-const slack = require('slack')
+const express = require('express')
+const connectAPI = require('./infrastructure/connectAPI')
 
-const channel = 'C01CG8V1894'
+const app = express()
 
-const token = process.env.SLACK_AUTH
+app.use(express.json())
+connectAPI(app)
+app.use((req, res) => {
+  res.status(400).end()
+})
+
 
 async function server() {
   await mongoose.connect('mongodb://localhost/snikpic',
-    { useNewUrlParser: true, useUnifiedTopology: true })
-  let res = await slack.chat.postMessage({token, channel, text: 'Testing'})
-  console.log(res)
+    { 
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    })
+  console.log('connected to the database')
+  const port = process.env.PORT || 5000
+  app.listen(port, () => console.log(`server started on port ${port}`))
 }
 server()
